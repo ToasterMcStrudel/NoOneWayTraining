@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import Navbar from "./Navbar"
+import Footer from "./Footer"
+import Home from "./pages/Home"
+import Services from "./pages/Services"
+import Philosophy from "./pages/Philosophy"
+import NotFound from "./pages/NotFound"
+import { Container} from "react-bootstrap"
+import { Route, Routes } from "react-router-dom"
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid  className=' p-0 m-0' > 
+      <Navbar />
+      <div className="bottomLine" />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/Philosophy" element={<Philosophy />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </div>
+
+      <Footer />
+    </Container>
   );
 }
 
